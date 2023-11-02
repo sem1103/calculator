@@ -142,9 +142,9 @@
 
         function setValueHandle(e) {
             calcDisplay.classList.remove('little__font');
-            if (/[a-zA-Zа-яА-ЯёЁ]/.test(e.value)) {
-                //calcDisplay.classList.add('little__font');
-                calcDisplay.value = 'Нельзя вводить буквы!';
+            if (/[a-zA-Zа-яА-ЯёЁ]/.test(calcDisplay.value)) {
+                console.log(1);
+                calcDisplay.value = '';
                 return;
             } else if (/\b0+\d+/.test(calcDisplay.value) || /^[+\*/]/.test(calcDisplay.value)) {
                 calcDisplay.value = 'Ошибка!';
@@ -208,9 +208,7 @@
 
         document.body.addEventListener('keydown', (e) => {
             console.log(e);
-            console.log(calcDisplay.onfocus);
-            if(document.activeElement != calcDisplay){
-                if (e.key >= 0 && e.key <= 9 || ['+', '-', '*', '/', '.'].includes(e.key) || e.key == 'Enter' || e.key == 'Backspace') {
+            if (e.key >= 0 && e.key <= 9 || ['+', '-', '*', '/', '.'].includes(e.key) || e.key == 'Enter' || e.key == 'Backspace') {
                 for(let i = 0; i < buttons.length; i++){
                     
                 }
@@ -234,8 +232,6 @@
                     
                 })
             }
-            }
-            
         });
 
         function showClickButton(item) {

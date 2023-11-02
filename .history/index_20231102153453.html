@@ -36,6 +36,8 @@
             text-align: right;
             font-size: 1.2rem;
             color: #fff;
+            margin: 0;
+            line-height: 5;
         }
 
         .calc__main,
@@ -52,6 +54,7 @@
         .calc__header {
             margin: 10px 0;
         }
+       
 
         .sum {
             background-color: #f1ff98;
@@ -100,9 +103,9 @@
         <div class="calc__wrapper">
             <div class="calc__header">
                 <button onclick="clearDisplay()">C</button>
-                <input id="display" class="calc__display" type="text" placeholder="0" oninput="setValueHandle(this)">
-
-                </input>
+                <p id="display" class="calc__display" placeholder="0">
+                    0
+                </p>
                 <button class="backspace" onclick="backspace()" data-key="Backspace">
                     <svg width="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path opacity="0.5"
@@ -208,9 +211,7 @@
 
         document.body.addEventListener('keydown', (e) => {
             console.log(e);
-            console.log(calcDisplay.onfocus);
-            if(document.activeElement != calcDisplay){
-                if (e.key >= 0 && e.key <= 9 || ['+', '-', '*', '/', '.'].includes(e.key) || e.key == 'Enter' || e.key == 'Backspace') {
+            if (e.key >= 0 && e.key <= 9 || ['+', '-', '*', '/', '.'].includes(e.key) || e.key == 'Enter' || e.key == 'Backspace') {
                 for(let i = 0; i < buttons.length; i++){
                     
                 }
@@ -234,8 +235,6 @@
                     
                 })
             }
-            }
-            
         });
 
         function showClickButton(item) {

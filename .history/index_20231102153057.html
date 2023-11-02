@@ -208,9 +208,7 @@
 
         document.body.addEventListener('keydown', (e) => {
             console.log(e);
-            console.log(calcDisplay.onfocus);
-            if(document.activeElement != calcDisplay){
-                if (e.key >= 0 && e.key <= 9 || ['+', '-', '*', '/', '.'].includes(e.key) || e.key == 'Enter' || e.key == 'Backspace') {
+            if (e.key >= 0 && e.key <= 9 || ['+', '-', '*', '/', '.'].includes(e.key) || e.key == 'Enter' || e.key == 'Backspace') {
                 for(let i = 0; i < buttons.length; i++){
                     
                 }
@@ -234,8 +232,6 @@
                     
                 })
             }
-            }
-            
         });
 
         function showClickButton(item) {
