@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font: bold 1.1rem arial;
+        }
+
+        .calc__container {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+
+        .calc__wrapper {
+            max-width: 900px;
+            background-color: #9cd1e9;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .calc__display {
+            box-shadow: inset 0px 8px 4px 0px #658695;
+            background-color: #7da8ba;
+            flex: 1;
+            border-radius: 10px;
+            border: 0;
+            outline: 0;
+            text-align: right;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .calc__main,
+        .calc__header {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 10px;
+            column-gap: 5px;
+
+        }
+
+        .calc__header {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 15px 5px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 1px 10px 4px #77a6bb;
+            flex-basis: calc(25% - 5px);
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #9d8fa4;
+            transition: all .1s ease-in-out;
+        }
+        button:active{
+            box-shadow: 1px 0 4px #77a6bb;
+            transform: translate(0,3px);
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div class="calc__container">
+        <div class="calc__wrapper">
+            <div class="calc__header">
+                <button onclick="clearDisplay()">C</button>
+                <input id="display" class="calc__display" type="text" placeholder="0">
+
+                </input>
+            </div>
+            <div class="calc__main">
+                <button onclick="setValueHandle(this)" >7</button>
+                <button onclick="setValueHandle(this)">8</button>
+                <button onclick="setValueHandle(this)">9</button>
+                <button onclick="setValueHandle(this)">+</button>
+                <button onclick="setValueHandle(this)">4</button>
+                <button onclick="setValueHandle(this)">5</button>
+                <button onclick="setValueHandle(this)">6</button>
+                <button onclick="setValueHandle(this)">-</button>
+                <button onclick="setValueHandle(this)">1</button>
+                <button onclick="setValueHandle(this)">2</button>
+                <button onclick="setValueHandle(this)">3</button>
+                <button onclick="setValueHandle(this)">+</button>
+                <button onclick="setValueHandle(this)">0</button>
+                <button onclick="setValueHandle(this)">.</button>
+                <button onclick="calcSumm()">=</button>
+                <button onclick="setValueHandle(this)">*</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let calcDisplay = document.getElementById('display');
+        
+
+        function setValueHandle(e){
+            console.log(typeof e.innerHTML);
+            calcDisplay.value += e.innerHTML.toString();
+            console.log(calcDisplay.value);
+        }
+
+        function clearDisplay(){
+            calcDisplay.value = '';
+        }
+
+        function calcSumm(value) {
+            // let value = calcDisplay.value;
+            value = value.replace(/\s/g, '');
+            let operators = value.split('').filter(item => {
+                if(item == '+' || item == '-' || item == '*' || item == '/') return item;
+            })
+            let numbers = value.split(/[+\-*/]/).map(Number);
+
+            let result;
+        
+
+            for(let i = 0; i < numbers.length; i++){
+                for(let j = 0; j < operators.length; j++){
+                    result += numbers[i] + operators[j]
+                }
+            }
+
+        }
+
+        calcSumm("65+ 65/65")
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font: bold 1.1rem arial;
+        }
+
+        .calc__container {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+
+        .calc__wrapper {
+            max-width: 900px;
+            background-color: #9cd1e9;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .calc__display {
+            box-shadow: inset 0px 8px 4px 0px #658695;
+            background-color: #7da8ba;
+            flex: 1;
+            border-radius: 10px;
+            border: 0;
+            outline: 0;
+            text-align: right;
+        }
+
+        .calc__main,
+        .calc__header {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 10px;
+            column-gap: 5px;
+
+        }
+
+        .calc__header {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 15px 5px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 1px 10px 4px #77a6bb;
+            flex-basis: calc(25% - 5px);
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calc__container">
+        <div class="calc__wrapper">
+            <div class="calc__header">
+                <button>C</button>
+                <input class="calc__display" type="text" placeholder="0">
+
+            </input>
+            </div>
+            <div class="calc__main">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>+</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>-</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>+</button>
+                <button>0</button>
+                <button>.</button>
+                <button>=</button>
+                <button>*</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
