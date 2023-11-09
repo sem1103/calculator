@@ -141,18 +141,17 @@
         let buttons = document.querySelectorAll('button');
 
         function setValueHandle(e) {
-            calcDisplay.value += e.innerHTML;
+            console.log();
             calcDisplay.classList.remove('little__font');
             if (/[a-zA-Zа-яА-ЯёЁ]/.test(e.value)) {
                 calcDisplay.classList.add('little__font');
                 calcDisplay.value = 'Нельзя вводить буквы!';
                 return;
-            } else if (/^0+\d+/.test(calcDisplay.value) || /^[+\*/]|[+\*/-]{2,}/.test(calcDisplay.value) || /[а-яА-ЯёЁ]/.test(calcDisplay.value) || /\d+\.{2,}|^\d+\.(\d+\.)+$|^\.|\d+\.?\+\./.test(calcDisplay.value)) {
+            } else if (/\b0+\d+/.test(calcDisplay.value) || /^[+\*/]/.test(e.innerHTML) || /[а-яА-ЯёЁ]/.test(calcDisplay.value) ) {
                 calcDisplay.value = 'Ошибка!';
                 return;
             }
-            
-            
+            calcDisplay.value += e.innerHTML;
         }
 
         function clearDisplay() {

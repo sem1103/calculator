@@ -141,7 +141,7 @@
         let buttons = document.querySelectorAll('button');
 
         function setValueHandle(e) {
-            calcDisplay.value += e.innerHTML;
+            console.log(calcDisplay.value[calcDisplay.value.length - 1]);
             calcDisplay.classList.remove('little__font');
             if (/[a-zA-Zа-яА-ЯёЁ]/.test(e.value)) {
                 calcDisplay.classList.add('little__font');
@@ -151,8 +151,7 @@
                 calcDisplay.value = 'Ошибка!';
                 return;
             }
-            
-            
+            calcDisplay.value += e.innerHTML;
         }
 
         function clearDisplay() {
